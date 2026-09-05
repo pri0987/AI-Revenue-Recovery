@@ -2,7 +2,7 @@
 
 > **Find revenue that's slipping away — and win it back.**
 
-AI Revenue Recovery is a hackathon-ready platform that detects customers at risk of payment failure, calculates revenue at risk, prioritizes recovery opportunities, selects bounded recovery actions, executes the workflow, measures recovered revenue, and maintains an audit trail.
+AI Revenue Recovery is a AI platform that detects customers at risk of payment failure, calculates revenue at risk, prioritizes recovery opportunities, selects bounded recovery actions, executes the workflow, measures recovered revenue, and maintains an audit trail.
 
 ## 🚀 Project Overview
 
