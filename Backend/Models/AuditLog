@@ -1,0 +1,67 @@
+const mongoose = require("mongoose");
+
+const auditLogSchema = new mongoose.Schema(
+  {
+    customer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Customer",
+      required: true,
+    },
+
+    recoveryCase: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "RecoveryCase",
+      default: null,
+    },
+
+    eventType: {
+      type: String,
+      enum: [
+        "risk_detected",
+        "ai_decision",
+        "recovery_started",
+        "recovery_success",
+        "recovery_failed",
+        "recovery_stopped",
+        "reminder_sent",
+        "case_escalated",
+      ],
+      required: true,
+    },
+
+    riskScore: {
+      type: Number,
+      default: 0,
+    },
+
+    action: {
+      type: String,
+      default: "",
+    },
+
+    message: {
+      type: String,
+      required: true,
+    },
+
+    amountAtRisk: {
+      type: Number,
+      default: 0,
+    },
+
+    recoveredAmount: {
+      type: Number,
+      default: 0,
+    },
+
+    metadata: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {},
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = mongoose.model("AuditLog", auditLogSchema);
