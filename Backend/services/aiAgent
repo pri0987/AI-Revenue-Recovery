@@ -1,0 +1,249 @@
+/* =====================================================
+   AI REVENUE RECOVERY DECISION ENGINE
+   ===================================================== */
+
+function analyzeCustomer(customer) {
+
+  const {
+    paymentStatus,
+    subscription,
+    failureReason,
+    failedAttempts = 0,
+    amount = 0,
+    riskScore = 0,
+    revenueAtRisk = 0
+  } = customer;
+
+
+  let action = "stop";
+  let recommendation = "";
+  let reason = "";
+
+
+  /* =====================================================
+     SAFETY STOP — PAYMENT ALREADY COMPLETED
+     ===================================================== */
+
+  if (paymentStatus === "paid") {
+
+    action = "stop";
+
+    recommendation =
+      "No recovery action is required because the payment has already been completed.";
+
+    reason =
+      "Customer payment status is already paid.";
+
+  }
+
+
+  /* =====================================================
+     SAFETY STOP — TOO MANY FAILED ATTEMPTS
+     ===================================================== */
+
+  else if (failedAttempts >= 3) {
+
+    action = "escalate";
+
+    recommendation =
+      "Stop automatic payment retries and escalate the customer to the recovery team.";
+
+    reason =
+      "The customer has reached the maximum allowed payment attempts.";
+
+  }
+
+
+  /* =====================================================
+     HIGH VALUE + HIGH RISK
+     ===================================================== */
+
+  else if (
+    riskScore >= 75 &&
+    revenueAtRisk >= 5000
+  ) {
+
+    action = "escalate";
+
+    recommendation =
+      "Escalate this high-value critical recovery case to the recovery team.";
+
+    reason =
+      "The customer has critical risk and significant revenue at risk.";
+
+  }
+
+
+  /* =====================================================
+     INSUFFICIENT FUNDS
+     ===================================================== */
+
+  else if (
+    failureReason === "insufficient_funds" &&
+    failedAttempts < 3
+  ) {
+
+    action = "retry_payment";
+
+    recommendation =
+      "Retry the payment because insufficient funds may be a temporary issue.";
+
+    reason =
+      "Payment failed because of insufficient funds and retry attempts remain.";
+
+  }
+
+
+  /* =====================================================
+     GATEWAY ERROR
+     ===================================================== */
+
+  else if (
+    failureReason === "gateway_error" &&
+    failedAttempts < 3
+  ) {
+
+    action = "retry_payment";
+
+    recommendation =
+      "Retry the payment because the gateway error may be temporary.";
+
+    reason =
+      "The payment gateway reported a potentially temporary failure.";
+
+  }
+
+
+  /* =====================================================
+     EXPIRED CARD
+     ===================================================== */
+
+  else if (
+    failureReason === "expired_card"
+  ) {
+
+    action = "send_reminder";
+
+    recommendation =
+      "Ask the customer to update their expired payment method.";
+
+    reason =
+      "The customer's payment method has expired.";
+
+  }
+
+
+  /* =====================================================
+     BANK DECLINED
+     ===================================================== */
+
+  else if (
+    failureReason === "bank_declined"
+  ) {
+
+    action = "send_reminder";
+
+    recommendation =
+      "Ask the customer to verify the payment method or contact their bank.";
+
+    reason =
+      "The customer's bank declined the payment.";
+
+  }
+
+
+  /* =====================================================
+     OVERDUE PAYMENT
+     ===================================================== */
+
+  else if (
+    paymentStatus === "overdue"
+  ) {
+
+    action = "send_reminder";
+
+    recommendation =
+      "Send a payment reminder for the overdue amount.";
+
+    reason =
+      "The customer's payment is overdue.";
+
+  }
+
+
+  /* =====================================================
+     FAILED SUBSCRIPTION
+     ===================================================== */
+
+  else if (
+    subscription === "failed"
+  ) {
+
+    action = "recovery_message";
+
+    recommendation =
+      "Send a subscription recovery message to the customer.";
+
+    reason =
+      "The customer's subscription has failed.";
+
+  }
+
+
+  /* =====================================================
+     MEDIUM RISK
+     ===================================================== */
+
+  else if (
+    riskScore >= 50
+  ) {
+
+    action = "send_reminder";
+
+    recommendation =
+      "Send a targeted payment recovery reminder.";
+
+    reason =
+      "The customer has elevated revenue recovery risk.";
+
+  }
+
+
+  /* =====================================================
+     DEFAULT
+     ===================================================== */
+
+  else {
+
+    action = "stop";
+
+    recommendation =
+      "No recovery action is required at this time.";
+
+    reason =
+      "The customer does not currently meet the recovery criteria.";
+
+  }
+
+
+  return {
+
+    action,
+
+    recommendation,
+
+    reason,
+
+    riskScore,
+
+    amountAtRisk:
+      revenueAtRisk || amount || 0
+
+  };
+
+}
+
+
+module.exports = {
+  analyzeCustomer
+};
