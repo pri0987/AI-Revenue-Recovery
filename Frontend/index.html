@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Revenue Recovery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+
+                <div>
+                    <h2>Revenue<span>AI</span></h2>
+                    <p>Recovery Platform</p>
+                </div>
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+    <p class="nav-title">MAIN</p>
+
+    <a href="#dashboard" class="nav-link active">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Dashboard</span>
+    </a>
+
+    <a href="#customers" class="nav-link">
+        <i class="fa-solid fa-users"></i>
+        <span>Customers</span>
+    </a>
+
+    <a href="#revenue-at-risk" class="nav-link">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>Revenue at Risk</span>
+        <span class="nav-badge">24</span>
+    </a>
+
+    <a href="#recovery-cases" class="nav-link">
+        <i class="fa-solid fa-arrows-rotate"></i>
+        <span>Recovery Cases</span>
+    </a>
+
+    <p class="nav-title">INTELLIGENCE</p>
+
+    <a href="#ai-agent" class="nav-link">
+        <i class="fa-solid fa-robot"></i>
+        <span>AI Agent</span>
+        <span class="ai-status"></span>
+    </a>
+
+    <a href="#audit-trail" class="nav-link">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>Audit Trail</span>
+    </a>
+
+    <p class="nav-title">SYSTEM</p>
+
+    <a href="#analytics" class="nav-link">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Analytics</span>
+    </a>
+
+    <a href="#settings" class="nav-link">
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </a>
+
+</nav>
+
+
+            <!-- AI Agent Status -->
+
+            <div class="agent-card">
+
+                <div class="agent-header">
+
+                    <div class="agent-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <div>
+                        <strong>AI Agent</strong>
+                        <span class="online">
+                            <i class="fa-solid fa-circle"></i>
+                            Online
+                        </span>
+                    </div>
+
+                </div>
+
+                <p>
+                    Monitoring revenue and automatically
+                    recovering at-risk payments.
+                </p>
+
+            </div>
+
+
+            <div class="sidebar-user">
+
+                <div class="avatar">
+                    PK
+                </div>
+
+                <div class="user-info">
+                    <strong>Admin</strong>
+                    <span>Revenue Manager</span>
+                </div>
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main">
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div class="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="page-title">
+
+                    <h1>Revenue Recovery</h1>
+
+                    <p>
+                        AI-powered revenue monitoring and recovery
+                    </p>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button class="icon-button notification">
+                        <i class="fa-regular fa-bell"></i>
+                        <span></span>
+                    </button>
+
+                    <div class="date-display">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>Sep 04, 2026</span>
+                    </div>
+
+                    <button class="run-button" id="runRecoveryBtn">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                        Run Recovery Batch
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+
+            <section class="content" id="dashboard">
+
+
+                <!-- ================= KPI CARDS ================= -->
+
+                <div class="kpi-grid">
+
+
+                    <div class="kpi-card" id="revenue-at-risk">
+
+                        <div class="kpi-top">
+
+                            <div class="kpi-icon danger">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+
+                            <span class="kpi-change negative">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                12.4%
+                            </span>
+
+                        </div>
+
+                        <p>Revenue at Risk</p>
+
+                        <h2 id="revenueRisk">
+                            ₹2,45,000
+                        </h2>
+
+                        <span class="kpi-description">
+                            Across 127 customers
+                        </span>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+
+                            <div class="kpi-icon success">
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+                            </div>
+
+                            <span class="kpi-change positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                18.7%
+                            </span>
+
+                        </div>
+
+                        <p>Revenue Recovered</p>
+
+                        <h2 id="revenueRecovered">
+                            ₹1,28,500
+                        </h2>
+
+                        <span class="kpi-description">
+                            This month
+                        </span>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+
+                            <div class="kpi-icon purple">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+
+                            <span class="kpi-change positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                6.2%
+                            </span>
+
+                        </div>
+
+                        <p>Recovery Rate</p>
+
+                        <h2 id="recoveryRate">
+                            52.45%
+                        </h2>
+
+                        <span class="kpi-description">
+                            51 successful recoveries
+                        </span>
+
+                    </div>
+
+
+                    <div class="kpi-card" id="customers">
+
+                        <div class="kpi-top">
+                                
+                            <div class="kpi-icon warning">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+
+                            <span class="kpi-change neutral">
+                                Active
+                            </span>
+
+                        </div>
+
+                        <p>Customers at Risk</p>
+
+                        <h2 id="customersAtRisk">
+                            127
+                        </h2>
+
+                        <span class="kpi-description">
+                            24 high priority
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= CHART + AI ================= -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- RECOVERY CHART -->
+
+                    <div class="panel recovery-chart-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>Recovery Performance</h3>
+
+                                <p>
+                                    Revenue recovered over the last 30 days
+                                </p>
+
+                            </div>
+
+                            <select id="chartRange">
+
+                                <option value="30">Last 30 days</option>
+                                <option value="14">Last 14 days</option>
+                                <option value="7">Last 7 days</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="chart-container">
+
+                            <div class="y-axis">
+
+                                <span>₹50k</span>
+                                <span>₹40k</span>
+                                <span>₹30k</span>
+                                <span>₹20k</span>
+                                <span>₹10k</span>
+                                <span>₹0</span>
+
+                            </div>
+                            <!-- =====================================================
+     RECOVERY ANALYTICS SUMMARY
+     ===================================================== -->
+
+<div class="analytics-summary">
+
+    <div class="analytics-card">
+        <span>Recovered Cases</span>
+        <strong id="analyticsRecovered">0</strong>
+    </div>
+
+    <div class="analytics-card">
+        <span>Failed Cases</span>
+        <strong id="analyticsFailed">0</strong>
+    </div>
+
+    <div class="analytics-card">
+        <span>Processing</span>
+        <strong id="analyticsProcessing">0</strong>
+    </div>
+
+    <div class="analytics-card">
+        <span>Stopped</span>
+        <strong id="analyticsStopped">0</strong>
+    </div>
+
+    <div class="analytics-card">
+        <span>Total Recovered</span>
+        <strong id="analyticsRecoveredAmount">₹0</strong>
+    </div>
+
+    <div class="analytics-card">
+        <span>Recovery Rate</span>
+        <strong id="analyticsRecoveryRate">0%</strong>
+    </div>
+
+</div>
+
+
+                            <div class="chart">
+
+                                <div class="grid-lines">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+
+                                <svg
+                                    class="chart-svg"
+                                    viewBox="0 0 700 240"
+                                    preserveAspectRatio="none"
+                                >
+
+                                    <defs>
+
+                                        <linearGradient
+                                            id="areaGradient"
+                                            x1="0"
+                                            x2="0"
+                                            y1="0"
+                                            y2="1"
+                                        >
+
+                                            <stop
+                                                offset="0%"
+                                                stop-opacity=".25"
+                                            />
+
+                                            <stop
+                                                offset="100%"
+                                                stop-opacity="0"
+                                            />
+
+                                        </linearGradient>
+
+                                    </defs>
+
+
+                                    <path
+                                        class="chart-area"
+                                        d="
+                                        M0 190
+                                        C50 175, 70 180, 110 160
+                                        S170 145, 210 150
+                                        S260 120, 300 135
+                                        S350 105, 390 115
+                                        S440 90, 480 105
+                                        S530 70, 570 85
+                                        S620 50, 700 60
+                                        L700 240
+                                        L0 240
+                                        Z
+                                        "
+                                    ></path>
+
+
+                                    <path
+                                        class="chart-line"
+                                        d="
+                                        M0 190
+                                        C50 175, 70 180, 110 160
+                                        S170 145, 210 150
+                                        S260 120, 300 135
+                                        S350 105, 390 115
+                                        S440 90, 480 105
+                                        S530 70, 570 85
+                                        S620 50, 700 60
+                                        "
+                                    ></path>
+
+                                </svg>
+
+
+                                <div class="x-axis">
+
+                                    <span>Aug 06</span>
+                                    <span>Aug 11</span>
+                                    <span>Aug 16</span>
+                                    <span>Aug 21</span>
+                                    <span>Aug 26</span>
+                                    <span>Aug 31</span>
+                                    <span>Sep 04</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI AGENT PANEL -->
+
+                    <div class="panel ai-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>AI Recovery Agent</h3>
+
+                                <p>
+                                    Current agent activity
+                                </p>
+
+                            </div>
+
+                            <span class="live-badge">
+                                <i class="fa-solid fa-circle"></i>
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="agent-main">
+
+                            <div class="agent-animation">
+
+                                <div class="pulse"></div>
+
+                                <i class="fa-solid fa-robot"></i>
+
+                            </div>
+
+                            <h4>Agent is monitoring</h4>
+
+                            <p>
+                                Analyzing payment events and identifying
+                                recovery opportunities.
+                            </p>
+
+                        </div>
+
+
+                        <div class="agent-stats">
+
+                            <div>
+
+                                <span>Cases analyzed</span>
+                                <strong>1,284</strong>
+
+                            </div>
+
+                            <div>
+
+                                <span>Actions executed</span>
+                                <strong>347</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <button class="view-agent-btn">
+                            View Agent Activity
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- =====================================================
+     AI AGENT DECISIONS
+     ===================================================== -->
+
+<section class="ai-decisions-section">
+
+    <div class="section-header">
+
+        <div>
+            <h3>AI Agent Decisions</h3>
+
+            <p>
+                Latest decisions made by the recovery agent
+            </p>
+        </div>
+
+        <button
+            id="refreshAiDecisions"
+            class="refresh-btn"
+            type="button"
+        >
+            <i class="fa-solid fa-rotate"></i>
+            Refresh
+        </button>
+
+    </div>
+
+
+    <div
+        id="aiDecisionsList"
+        class="ai-decisions-list"
+    >
+    <section class="audit-section">
+
+    <div class="section-header">
+        <div>
+            <h3>Audit Trail</h3>
+            <p>Complete history of AI recovery actions</p>
+        </div>
+
+        <button
+            id="refreshAudit"
+            class="refresh-btn"
+            type="button"
+        >
+            <i class="fa-solid fa-rotate"></i>
+            Refresh
+        </button>
+    </div>
+
+    <div id="auditList" class="audit-list">
+
+        <div class="ai-empty-state">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <h4>No audit events yet</h4>
+            <p>Recovery activity will appear here.</p>
+        </div>
+
+    </div>
+
+</section>
+
+        <div class="ai-empty-state">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h4>
+                No AI decisions yet
+            </h4>
+
+            <p>
+                Run a recovery batch to see AI decisions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+                <!-- ================= CASES ================= -->
+
+                <div class="panel cases-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Priority Recovery Cases</h3>
+
+                            <p>
+                                Customers requiring AI intervention
+                            </p>
+
+                        </div>
+
+                        <button class="view-all">
+                            View All
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Customer</th>
+                                    <th>Revenue at Risk</th>
+                                    <th>Risk</th>
+                                    <th>Issue</th>
+                                    <th>AI Recommendation</th>
+                                    <th>Status</th>
+                                    <th></th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="casesTable">
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="customer">
+
+                                            <div class="customer-avatar avatar-1">
+                                                RK
+                                            </div>
+
+                                            <div>
+                                                <strong>Rahul Kumar</strong>
+                                                <span>rahul@example.com</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+                                        <strong>₹1,999</strong>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="risk high">
+                                            High
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="issue">
+                                            Payment Failed
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="recommendation">
+                                            <i class="fa-solid fa-rotate"></i>
+                                            Retry payment
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+                                        <span class="status recovered">
+                                            Recovered
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <button class="more-btn">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="customer">
+
+                                            <div class="customer-avatar avatar-2">
+                                                AS
+                                            </div>
+
+                                            <div>
+                                                <strong>Amit Singh</strong>
+                                                <span>amit@example.com</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+                                        <strong>₹4,999</strong>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="risk high">
+                                            High
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="issue">
+                                            Subscription Failed
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="recommendation">
+                                            <i class="fa-solid fa-message"></i>
+                                            Send reminder
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <button class="more-btn">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="customer">
+
+                                            <div class="customer-avatar avatar-3">
+                                                PS
+                                            </div>
+
+                                            <div>
+                                                <strong>Priya Sharma</strong>
+                                                <span>priya@example.com</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+                                        <strong>₹2,499</strong>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="risk medium">
+                                            Medium
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="issue">
+                                            Checkout Abandoned
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="recommendation">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                            Recovery message
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+                                        <span class="status active">
+                                            Processing
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <button class="more-btn">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="customer">
+
+                                            <div class="customer-avatar avatar-4">
+                                                RS
+                                            </div>
+
+                                            <div>
+                                                <strong>Rohit Singh</strong>
+                                                <span>rohit@example.com</span>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+                                        <strong>₹9,999</strong>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="risk high">
+                                            High
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <span class="issue">
+                                            Invoice Overdue
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="recommendation">
+                                            <i class="fa-solid fa-phone"></i>
+                                            Escalate
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <button class="more-btn">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= BOTTOM GRID ================= -->
+
+                <div class="bottom-grid">
+
+
+                    <!-- RECOVERY BREAKDOWN -->
+
+                    <div class="panel breakdown-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>Recovery Breakdown</h3>
+
+                                <p>
+                                    By revenue problem
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="breakdown-list">
+
+
+                            <div class="breakdown-item">
+
+                                <div class="breakdown-icon payment">
+                                    <i class="fa-solid fa-credit-card"></i>
+                                </div>
+
+                                <div class="breakdown-info">
+
+                                    <div>
+                                        <strong>Payment Failures</strong>
+                                        <span>42 cases</span>
+                                    </div>
+
+                                    <div class="progress">
+                                        <span style="width: 78%"></span>
+                                    </div>
+
+                                </div>
+
+                                <strong>₹68,500</strong>
+
+                            </div>
+
+
+                            <div class="breakdown-item">
+
+                                <div class="breakdown-icon checkout">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+
+                                <div class="breakdown-info">
+
+                                    <div>
+                                        <strong>Checkout Abandonment</strong>
+                                        <span>31 cases</span>
+                                    </div>
+
+                                    <div class="progress">
+                                        <span style="width: 58%"></span>
+                                    </div>
+
+                                </div>
+
+                                <strong>₹34,200</strong>
+
+                            </div>
+
+
+                            <div class="breakdown-item">
+
+                                <div class="breakdown-icon invoice">
+                                    <i class="fa-solid fa-file-invoice"></i>
+                                </div>
+
+                                <div class="breakdown-info">
+
+                                    <div>
+                                        <strong>Overdue Receivables</strong>
+                                        <span>18 cases</span>
+                                    </div>
+
+                                    <div class="progress">
+                                        <span style="width: 42%"></span>
+                                    </div>
+
+                                </div>
+
+                                <strong>₹25,800</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIVITY -->
+
+                    <div class="panel activity-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h3>Recent Activity</h3>
+
+                                <p>
+                                    Latest recovery actions
+                                </p>
+
+                            </div>
+
+                            <button class="more-btn">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </button>
+
+                        </div>
+
+
+                        <div class="activity-list">
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon success">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Payment recovered
+                                    </strong>
+
+                                    <p>
+                                        Rahul Kumar · ₹1,999
+                                    </p>
+
+                                    <span>
+                                        8 minutes ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon ai">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        AI intervention selected
+                                    </strong>
+
+                                    <p>
+                                        Amit Singh · Send reminder
+                                    </p>
+
+                                    <span>
+                                        18 minutes ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon warning">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Payment failure detected
+                                    </strong>
+
+                                    <p>
+                                        Priya Sharma · ₹2,499
+                                    </p>
+
+                                    <span>
+                                        31 minutes ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= RECOVERY MODAL ================= -->
+
+    <div class="modal-overlay" id="recoveryModal">
+
+        <div class="modal">
+
+            <button class="modal-close" id="closeModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <h2>Run Recovery Batch?</h2>
+
+            <p>
+                The AI agent will analyze all active revenue-risk cases,
+                determine the best intervention, and execute eligible
+                recovery actions.
+            </p>
+
+
+            <div class="modal-stats">
+
+                <div>
+                    <span>Active Cases</span>
+                    <strong>127</strong>
+                </div>
+
+                <div>
+                    <span>Revenue at Risk</span>
+                    <strong>₹2,45,000</strong>
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button class="cancel-btn" id="cancelRecovery">
+                    Cancel
+                </button>
+
+                <button class="confirm-btn" id="confirmRecovery">
+                    <i class="fa-solid fa-play"></i>
+                    Start Recovery
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
